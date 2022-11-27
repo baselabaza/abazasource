@@ -29,9 +29,9 @@ def allGP(client, message,redis):
     if text == "منو ضافني" or text == "مين ضافني" or text == "مين ضايفني":
       get = redis.hget("{}Nbot:MowAddMe:{}".format(BOT_ID,chatID),userID)
       if get:
-        Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة ⏺: {get}","reply_to_message_id":message.id})
+        Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة : {get}","reply_to_message_id":message.id})
       else:
-        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك 🔘","reply_to_message_id":message.id})
+        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك ","reply_to_message_id":message.id})
     if re.search(c.setGPadmin,text):
       if re.search("@",text):
         user = text.split("@")[1]
@@ -56,7 +56,7 @@ def allGP(client, message,redis):
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.id,"parse_mode":"html"})
 
     if re.search(c.sors,text):
-      kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناة السورس 📢", url="t.me/"+BOTATE)],[InlineKeyboardButton("تواصل السورس 💬", url="t.me/RSaiedBot")],[InlineKeyboardButton("قناة البوتات 🤖", url="t.me/BOTATE")]])
+      kb = InlineKeyboardMarkup([[InlineKeyboardButton("قـنـاة الـسـورس 📜", url="t.me/"+BOTATE)],[InlineKeyboardButton("تـواصـل الـسـورس💬", url="t.me/Abazaxbot")],[InlineKeyboardButton("قـنـاة الـبـوتـات🤖", url="t.me/b100t")]])
       Botuser = client.get_me().username
       Bot("sendMessage",{"chat_id":chatID,"text":r.sors.format("@"+Botuser),"disable_web_page_preview":True,"reply_to_message_id":message.id,"parse_mode":"markdown","reply_markup":kb})
     
