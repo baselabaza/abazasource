@@ -69,9 +69,9 @@ def updateHandlers(client, message,redis):
 					Bot("sendMessage",{"chat_id":chatID,"text":r.doneadd.format(title),"reply_to_message_id":message.id,"parse_mode":"markdown","reply_markup":kb})
 					sendTO = (redis.get("{}Nbot:sudogp".format(BOT_ID)) or SUDO)
 					get = (redis.hget("{}Nbot:links".format(BOT_ID),chatID) or GetLink(chatID) or "https://t.me/"+BOTATE)
-					kb = InlineKeyboardMarkup([[InlineKeyboardButton("الرابط 🖇", url=get)]])
+					kb = InlineKeyboardMarkup([[InlineKeyboardButton("الرابط ", url=get)]])
 					BY = "<a href=\"tg://user?id={}\">{}</a>".format(userID,message.from_user.first_name)
-					Bot("sendMessage",{"chat_id":sendTO,"text":f"تم تفعيل مجموعه جديدة ℹ️\nاسم المجموعه : {title}\nايدي المجموعه : {chatID}\nالمنشئ : {BY}\n⎯ ⎯ ⎯ ⎯","parse_mode":"html","reply_markup":kb})
+					Bot("sendMessage",{"chat_id":sendTO,"text":f"تم تفعيل مجموعه جديدة \nاسم المجموعه : {title}\nايدي المجموعه : {chatID}\nالمنشئ : {BY}\n⎯ ⎯ ⎯ ⎯","parse_mode":"html","reply_markup":kb})
 				elif text == c.add and redis.sismember("{}Nbot:disabledgroups".format(BOT_ID),chatID)  and Ckuser(message):
 					redis.sadd("{}Nbot:groups".format(BOT_ID),chatID)
 					redis.srem("{}Nbot:disabledgroups".format(BOT_ID),chatID)
