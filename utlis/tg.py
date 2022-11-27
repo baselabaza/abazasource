@@ -74,7 +74,7 @@ def Ckuser(message):
   if response["ok"] == False:
     return True
   if response["result"] != None and response["result"]["status"] == "left":
-    kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ⏺", url="t.me/"+BOTATE)] ])
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ", url="t.me/"+BOTATE)] ])
     Bot("sendMessage",{"chat_id":chatID,"text":'عذراً يجب عليك الاشتراك في <a href="t.me/'+BOTATE+'">قناة البوت</a>\nلتتمكن من استخدام البوت بشكل كامل',"reply_to_message_id":message.id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":kb})
     return False
   else:
