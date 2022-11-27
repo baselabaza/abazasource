@@ -273,10 +273,10 @@ def gpcmd(client, message,redis):
       except Exception as e:
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.id,"parse_mode":"html"})
 
-    if re.search("^الغاء القيود$|^الغاء القيود @(.*)$|^الغاء القيود [0-9]+$", text):
+    if re.search("^رفع القيود$|^رفع القيود @(.*)$|^رفع القيود [0-9]+$", text):
       if re.search("@",text):
         user = text.split("@")[1]
-      if re.search("^الغاء القيود [0-9]+$",text):
+      if re.search("^رفع القيود [0-9]+$",text):
         user = int(re.search(r'\d+', text).group())
       if message.reply_to_message:
         user = message.reply_to_message.from_user.id
@@ -301,7 +301,7 @@ def gpcmd(client, message,redis):
           Bot("restrictChatMember",{"chat_id": chatID,"user_id": userId,"can_send_messages": 1,"can_send_media_messages": 1,"can_send_other_messages": 1,"can_send_polls": 1,
           "can_change_info": 1,"can_add_web_page_previews": 1,"can_pin_messages": 1,"can_invite_users": 1,})
           redis.srem("{}Nbot:{}:restricteds".format(BOT_ID,chatID),userId)
-          Bot("sendMessage",{"chat_id":chatID,"text":f"🚹꒐ العضو : {BY}\n⚪️꒐ تم الغاء القيود","reply_to_message_id":message.id,"parse_mode":"html"})
+          Bot("sendMessage",{"chat_id":chatID,"text":f"🚹꒐ العضو : {BY}\n⚪️꒐ تم رفع القيود","reply_to_message_id":message.id,"parse_mode":"html"})
 
       except Exception as e:
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.id,"parse_mode":"html"})
@@ -543,8 +543,8 @@ def gpcmd(client, message,redis):
 <i>italic</i>
 __italic__
 
-<a href=\"https://t.me/BOTATE\">VeerV2</a>
-[VeerV2](https://t.me/BOTATE)
+<a href=\"https://t.me/JJXXH\">ABAZA</a>
+[ABAZA](https://t.me/JJXXH)
 
 <code>inline fixed-width code</code>
 `inline fixed-width code`

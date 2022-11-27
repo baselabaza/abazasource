@@ -29,9 +29,9 @@ def allGP(client, message,redis):
     if text == "منو ضافني" or text == "مين ضافني" or text == "مين ضايفني":
       get = redis.hget("{}Nbot:MowAddMe:{}".format(BOT_ID,chatID),userID)
       if get:
-        Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة ⏺: {get}","reply_to_message_id":message.id})
+        Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة : {get}","reply_to_message_id":message.id})
       else:
-        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك 🔘","reply_to_message_id":message.id})
+        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك ","reply_to_message_id":message.id})
     if re.search(c.setGPadmin,text):
       if re.search("@",text):
         user = text.split("@")[1]
@@ -69,7 +69,7 @@ def allGP(client, message,redis):
       reply_markup = getOR(rank,r,userID)
       Bot("sendMessage",{"chat_id":chatID,"text":r.Showall,"reply_to_message_id":message.id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":reply_markup})
 
-    if text == "عدد الكروب" and (rank is not False or rank is not  0 ):
+    if text == "عدد الجروب" and (rank is not False or rank is not  0 ):
       from pyrogram.raw.functions.channels import GetFullChannel
       chat = client.resolve_peer(chatID)
       full_chat = client.invoke(GetFullChannel(channel=chat)).full_chat
@@ -103,7 +103,7 @@ def allGP(client, message,redis):
 
     if text == "رتبتي":
       t = IDrank(redis,userID,chatID,r)
-      Bot("sendMessage",{"chat_id":chatID,"text":f"⏏️꒐ رتبتك : {t}","reply_to_message_id":message.id,"parse_mode":"html"})
+      Bot("sendMessage",{"chat_id":chatID,"text":f"꒐ رتبتك : {t}","reply_to_message_id":message.id,"parse_mode":"html"})
     if text == c.ID and not redis.sismember("{}Nbot:IDSend".format(BOT_ID),chatID) and message.reply_to_message:
       us = message.reply_to_message.from_user.id
       rusername = message.reply_to_message.from_user.username
