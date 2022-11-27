@@ -26,7 +26,6 @@ def ranks(client, message,redis):
 				"مد":"رفع مدير",
 				"من":"رفع منشى",
 				"اس":"رفع منشى اساسي",
-				"مط":"رفع مطور",
 				"تعط":"تعطيل الايدي بالصورة",
 				"تفع":"تفعيل الايدي بالصورة",
 			}
@@ -38,7 +37,7 @@ def ranks(client, message,redis):
 					redis.sadd("{}Nbot:{}:TXoeders".format(BOT_ID,chatID),ad)
 				orders += f"{i} - {text} > {tx}\n"
 				i+=1
-			Bot("sendMessage",{"chat_id":chatID,"text":f"꒐ تم اضافه الاوامر الاتيه \n⎯ ⎯ ⎯ ⎯\n{orders}\n⎯ ⎯ ⎯ ⎯","reply_to_message_id":message.id,"disable_web_page_preview":True})
+			Bot("sendMessage",{"chat_id":chatID,"text":f"✅꒐ تم اضافه الاوامر الاتيه \n⎯ ⎯ ⎯ ⎯\n{orders}\n⎯ ⎯ ⎯ ⎯","reply_to_message_id":message.id,"disable_web_page_preview":True})
 
 		if re.search(c.del_ac, text) and Ckuser(message):
 			H = "acreator"
