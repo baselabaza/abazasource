@@ -4,13 +4,13 @@ try:
   from config import *
   os.system('pm2 start bot.py --name {} --interpreter python3.8 --interpreter-args -u'.format(BOT_ID))
 except Exception as e:
-  API_ID = 793178
-  API_HASH = '9f4461079f30757ca0a4c23e14bd523f'
+  API_ID = 3127791
+  API_HASH = 'a81f44964701c9f087683a09f02a801e'
 
   out ="""
 from pyrogram import enums
-API_ID = 793178
-API_HASH = '9f4461079f30757ca0a4c23e14bd523f'
+API_ID = 3127791
+API_HASH = 'a81f44964701c9f087683a09f02a801e'
 """
   def Bot(TOKEN,method,data):
     url = "https://api.telegram.org/bot{}/{}".format(TOKEN,method)
