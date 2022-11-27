@@ -31,7 +31,7 @@ def allGP(client, message,redis):
       if get:
         Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة : {get}","reply_to_message_id":message.id})
       else:
-        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك ","reply_to_message_id":message.id})
+        Bot("sendMessage",{"chat_id":chatID,"text":f"انت انضممت لوحدك","reply_to_message_id":message.id})
     if re.search(c.setGPadmin,text):
       if re.search("@",text):
         user = text.split("@")[1]
@@ -56,7 +56,7 @@ def allGP(client, message,redis):
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.id,"parse_mode":"html"})
 
     if re.search(c.sors,text):
-      kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناة السورس 📢", url="t.me/"+BOTATE)],[InlineKeyboardButton("تواصل السورس 💬", url="t.me/RSaiedBot")],[InlineKeyboardButton("قناة البوتات 🤖", url="t.me/BOTATE")]])
+   kb = InlineKeyboardMarkup([[InlineKeyboardButton("قـناة الـسـورس📜", url="t.me/"+BOTATE)],[InlineKeyboardButton("تـواصـل الـسـورس💬", url="t.me/RSaiedBot")],[InlineKeyboardButton("قـنـاة الـبـوتـات🤖", url="t.me/B100T")]])
       Botuser = client.get_me().username
       Bot("sendMessage",{"chat_id":chatID,"text":r.sors.format("@"+Botuser),"disable_web_page_preview":True,"reply_to_message_id":message.id,"parse_mode":"markdown","reply_markup":kb})
     
@@ -69,7 +69,7 @@ def allGP(client, message,redis):
       reply_markup = getOR(rank,r,userID)
       Bot("sendMessage",{"chat_id":chatID,"text":r.Showall,"reply_to_message_id":message.id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":reply_markup})
 
-    if text == "عدد الجروب" and (rank is not False or rank is not  0 ):
+    if text == "عدد الجروبات" and (rank is not False or rank is not  0 ):
       from pyrogram.raw.functions.channels import GetFullChannel
       chat = client.resolve_peer(chatID)
       full_chat = client.invoke(GetFullChannel(channel=chat)).full_chat
